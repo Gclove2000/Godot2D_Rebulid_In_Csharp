@@ -1,5 +1,6 @@
 ﻿using Bogus;
 using Godot;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,20 @@ namespace BulletShower
 {
     public static class GD_Extension
     {
+        /// <summary>
+        /// 假数据生成，详情请看Bogus官方文档
+        /// </summary>
         public static Faker Faker = new Faker();
 
+        /// <summary>
+        /// 获取子节点，需要保证子节点命名完全一致
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="root">node跟节点</param>
+        /// <param name="childNode">子节点属性，需要保证和场景命名完全一致</param>
+        /// <param name="nameExpression">获取子节点命名字符串</param>
+        /// <exception cref="Exception"></exception>
         public static void GetChildNode<T1,T2>(this T1 root,ref T2  childNode, 
             [CallerArgumentExpression(nameof(childNode))] string nameExpression = null)
             where T1: Node where T2: Node
@@ -24,6 +37,16 @@ namespace BulletShower
                 GD.Print(str);
                 throw new Exception(str);
             }
+        }
+        /// <summary>
+        /// Godot 序列号输出
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="formatting"></param>
+        public static void GD_Print(object obj,Formatting formatting = Formatting.Indented)
+        {
+            GD.Print(JsonConvert.SerializeObject(obj,formatting));
+
         }
 
     }
