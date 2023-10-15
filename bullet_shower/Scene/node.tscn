@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmu83ihw46oeh"]
+[gd_scene load_steps=7 format=3 uid="uid://c57nftllcrgne"]
 
+[ext_resource type="Script" path="res://Script/Player.cs" id="1_ueq3g"]
 [ext_resource type="Texture2D" uid="uid://b1dcn1dtodbk" path="res://Resource/face_happy.png" id="1_vwn1q"]
 [ext_resource type="Texture2D" uid="uid://b3uaorpvv2bdk" path="res://Resource/face_sad.png" id="2_mwrp5"]
 [ext_resource type="Script" path="res://Script/Bullets.cs" id="3_vtu4j"]
@@ -26,8 +27,9 @@ radius = 27.074
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Player" type="Area2D" parent="Node2D"]
+script = ExtResource("1_ueq3g")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/Player"]
+[node name="Animate" type="AnimatedSprite2D" parent="Node2D/Player"]
 sprite_frames = SubResource("SpriteFrames_x5igu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Player"]
@@ -35,3 +37,6 @@ shape = SubResource("CircleShape2D_j1xhp")
 
 [node name="Bullets" type="Node2D" parent="Node2D"]
 script = ExtResource("3_vtu4j")
+
+[connection signal="body_shape_entered" from="Node2D/Player" to="Node2D/Player" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="Node2D/Player" to="Node2D/Player" method="_on_body_shape_exited"]

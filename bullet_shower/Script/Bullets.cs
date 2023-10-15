@@ -73,7 +73,6 @@ public partial class Bullets : Node2D
     {
 		var offset = -Bullet_Image.GetSize();
 		offset = offset /2;
-		Texture texture = new Texture();
 		
         foreach (var item in bullets)
 		{
