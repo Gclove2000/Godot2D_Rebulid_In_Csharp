@@ -1,4 +1,5 @@
-using BulletShower;
+//using BulletShower;
+using GD_Extension;
 using Godot;
 using System;
 using System.Collections.Generic;
@@ -25,14 +26,14 @@ public partial class Bullets : Node2D
         for (var i = 0; i < Button_Count; i++)
 		{
 			var model = new Bullet();
-			model.speed = GD_Extension.Faker.Random.Int(Speed_min,Speed_max);
+			model.speed = GD_Extensions.Faker.Random.Int(Speed_min,Speed_max);
 			model.body = PhysicsServer2D.BodyCreate();
 			PhysicsServer2D.BodySetSpace(model.body,GetWorld2D().Space);
 			PhysicsServer2D.BodyAddShape(model.body, Shape);
 			PhysicsServer2D.BodySetCollisionMask(model.body,0);
 			model.position = new Vector2(
-				GD_Extension.Faker.Random.Float(0,GetViewportRect().Size.X+GetViewportRect().Size.Y),
-				GD_Extension.Faker.Random.Float(0, GetViewportRect().Size.Y)
+				GD_Extensions.Faker.Random.Float(0,GetViewportRect().Size.X+GetViewportRect().Size.Y),
+				GD_Extensions.Faker.Random.Float(0, GetViewportRect().Size.Y)
 			);
 
 			var transform2d = new Transform2D();
