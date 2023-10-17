@@ -1,5 +1,5 @@
-//using BulletShower;
-using GD_Extension;
+using BulletShower;
+//using GD_Extension;
 using Godot;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,9 @@ public partial class Bullets : Node2D
 	public readonly int Speed_min = 20;
 	public readonly int Speed_max = 80;
 
-	//public ImageTexture Bullet_Image = ResourceLoader.Load<ImageTexture>("res://bullet.png");
+	/// <summary>
+	/// 以Texture2D的形式去加载图片文件
+	/// </summary>
 	public Texture2D Bullet_Image = new Texture2D();
 
 	private List<Bullet> bullets = new List<Bullet>();
@@ -20,20 +22,21 @@ public partial class Bullets : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-		Shape = PhysicsServer2D.CircleShapeCreate();
+        //PhysicsServer2D用于创建物理属性
+        Shape = PhysicsServer2D.CircleShapeCreate();
 		PhysicsServer2D.ShapeSetData(Shape,8);
 		Bullet_Image = GD.Load<Texture2D>("res://bullet.png");
         for (var i = 0; i < Button_Count; i++)
 		{
 			var model = new Bullet();
-			model.speed = GD_Extensions.Faker.Random.Int(Speed_min,Speed_max);
+			model.speed = GD_Extension.Faker.Random.Int(Speed_min,Speed_max);
 			model.body = PhysicsServer2D.BodyCreate();
 			PhysicsServer2D.BodySetSpace(model.body,GetWorld2D().Space);
 			PhysicsServer2D.BodyAddShape(model.body, Shape);
 			PhysicsServer2D.BodySetCollisionMask(model.body,0);
 			model.position = new Vector2(
-				GD_Extensions.Faker.Random.Float(0,GetViewportRect().Size.X+GetViewportRect().Size.Y),
-				GD_Extensions.Faker.Random.Float(0, GetViewportRect().Size.Y)
+				GD_Extension.Faker.Random.Float(0,GetViewportRect().Size.X+GetViewportRect().Size.Y),
+				GD_Extension.Faker.Random.Float(0, GetViewportRect().Size.Y)
 			);
 
 			var transform2d = new Transform2D();
@@ -73,6 +76,7 @@ public partial class Bullets : Node2D
     public override void _Draw()
     {
 		var offset = -Bullet_Image.GetSize();
+		//Godot重载了对应的运算符
 		offset = offset /2;
 		
         foreach (var item in bullets)
