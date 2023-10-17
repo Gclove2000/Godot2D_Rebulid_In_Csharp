@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://bttyjhy8ebrmi"]
+
+[ext_resource type="Texture2D" uid="uid://ftkxr8r4qghp" path="res://resource/images/playerGrey_walk1.png" id="1_ih0l5"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_o5qtu"]
+[ext_resource type="Texture2D" uid="uid://couyhcegeihme" path="res://resource/images/playerGrey_walk2.png" id="2_k0nv2"]
+[ext_resource type="Texture2D" uid="uid://b4yyoafu8bi0q" path="res://resource/images/playerGrey_up1.png" id="3_whj5n"]
+[ext_resource type="Texture2D" uid="uid://bko65a0nd66st" path="res://resource/images/playerGrey_up2.png" id="4_65mpu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ujbb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ih0l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k0nv2")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_whj5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_65mpu")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8b57r"]
+radius = 36.0
+height = 96.0
+
+[sub_resource type="Curve2D" id="Curve2D_0tkuh"]
+
+[node name="Main" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 471.0
+offset_bottom = 719.0
+color = Color(0.462745, 0.772549, 0.647059, 1)
+
+[node name="Player" type="Area2D" parent="."]
+script = ExtResource("1_o5qtu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(1, 1.90735e-06)
+scale = Vector2(0.694444, 0.694444)
+sprite_frames = SubResource("SpriteFrames_7ujbb")
+animation = &"right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_8b57r")
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_0tkuh")
+
+[node name="MobPathFollow2D" type="PathFollow2D" parent="MobPath"]
+
+[node name="HUD" type="CanvasLayer" parent="."]
