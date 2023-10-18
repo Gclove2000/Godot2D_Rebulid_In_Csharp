@@ -34,22 +34,30 @@ public partial class Hud : CanvasLayer
 
 	public async Task ShowGameOver()
 	{
-		ShowMessage("Game Over!");
-		await ToSignal(MessageTimer, "timeout");
-		MessageLabel.Text = "Dodge the Creeps!";
-		MessageLabel.Show();
-        GD_Extensions.GD_Print("开始等待3s");
+        //ShowMessage("Game Over!");
+        //await ToSignal(MessageTimer, "timeout");
+        //MessageLabel.Text = "Dodge the Creeps!";
+        StartButton.Hide();
+        //MessageLabel.Show();
+		GD_Extensions.GD_Print("开始等待3s");
         await Task.Delay(3000);
 		GD_Extensions.GD_Print("等待3s");
-		StartButton.Show();
+		//StartButton.Show();
 		//return Task.CompletedTask;
 	}
 
-	public async void  OnStartButtonPressed()
+	public  async void  OnStartButtonPressed()
 	{
-        StartButton.Hide();
+        //MessageLabel.Show();
+
+        GD_Extensions.GD_Print("异步事件开始");
+        //await Task.Delay(1000 * 3);
         await ShowGameOver();
         GD_Extensions.GD_Print("异步事件结束");
+        //StartButton.Hide();
+        //GD_Extensions.GD_Print("异步事件开始");
+        //ShowGameOver().Wait();
+        //GD_Extensions.GD_Print("异步事件结束");
     }
 
     public void OnMessageTimerTimeout() { 
