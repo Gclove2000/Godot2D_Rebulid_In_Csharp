@@ -1,15 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bttyjhy8ebrmi"]
+[gd_scene load_steps=6 format=3 uid="uid://bttyjhy8ebrmi"]
 
 [ext_resource type="Script" path="res://scripts/main.cs" id="1_1kdrw"]
 [ext_resource type="PackedScene" uid="uid://c51tbsy421u2m" path="res://scenes/player.tscn" id="1_v27kh"]
+[ext_resource type="PackedScene" uid="uid://dr3n337fg05cv" path="res://scenes/mob.tscn" id="2_pwilg"]
+[ext_resource type="PackedScene" uid="uid://d0sxbbnideqeu" path="res://scenes/hud.tscn" id="4_fl227"]
 
 [sub_resource type="Curve2D" id="Curve2D_0tkuh"]
+_data = {
+"points": PackedVector2Array(-111, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="Main" type="Node"]
 script = ExtResource("1_1kdrw")
+MobSence = ExtResource("2_pwilg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 471.0
+offset_right = 479.0
 offset_bottom = 719.0
 color = Color(0.462745, 0.772549, 0.647059, 1)
 
@@ -28,7 +35,8 @@ autostart = true
 curve = SubResource("Curve2D_0tkuh")
 
 [node name="MobPathFollow2D" type="PathFollow2D" parent="MobPath"]
+scale = Vector2(1.09955, 1.2223)
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" parent="." instance=ExtResource("4_fl227")]
 
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]

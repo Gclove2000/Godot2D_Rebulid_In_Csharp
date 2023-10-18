@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0sxbbnideqeu"]
+
+[ext_resource type="Script" path="res://scripts/Hud.cs" id="1_ejycp"]
+[ext_resource type="Theme" uid="uid://dnllmwtvl3707" path="res://resource/fonts/Test.tres" id="1_fei0w"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ejycp")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 485.0
+offset_bottom = 98.0
+theme = ExtResource("1_fei0w")
+text = "0"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="."]
+offset_left = 36.0
+offset_top = 227.0
+offset_right = 452.0
+offset_bottom = 409.0
+theme = ExtResource("1_fei0w")
+text = "Dodge the Creeps"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 138.0
+offset_top = 457.0
+offset_right = 335.0
+offset_bottom = 586.0
+theme = ExtResource("1_fei0w")
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="OnMessageTimerTimeout"]

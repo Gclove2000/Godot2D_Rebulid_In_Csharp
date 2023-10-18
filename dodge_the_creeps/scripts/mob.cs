@@ -12,6 +12,8 @@ public partial class mob : RigidBody2D
 		var mob_animation = AnimatedSprite2D.SpriteFrames.GetAnimationNames();
 		var index = GD_Extensions.Faker.Random.Int(0, mob_animation.Length - 1);
 		AnimatedSprite2D.Animation =mob_animation[index] ;
+		AnimatedSprite2D.Play();
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

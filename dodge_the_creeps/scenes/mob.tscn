@@ -49,6 +49,9 @@ radius = 34.9673
 height = 103.96
 
 [node name="Mob" type="RigidBody2D"]
+position = Vector2(129, 121)
+collision_mask = 0
+gravity_scale = 0.0
 script = ExtResource("1_cpgsl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -56,6 +59,8 @@ position = Vector2(-3.8147e-06, -0.999998)
 scale = Vector2(0.729167, 0.729167)
 sprite_frames = SubResource("SpriteFrames_y0ufc")
 animation = &"2"
+frame = 1
+frame_progress = 0.458595
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5563

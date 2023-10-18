@@ -44,7 +44,7 @@ namespace DodgeTheCreeps
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="formatting"></param>
-        public static void GD_Print(object obj, Formatting formatting = Formatting.Indented)
+        public static void GD_Print(object obj, Formatting formatting = Formatting.None)
         {
             GD.Print(JsonConvert.SerializeObject(obj, formatting));
 
