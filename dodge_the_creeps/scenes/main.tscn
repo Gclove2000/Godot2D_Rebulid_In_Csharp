@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bttyjhy8ebrmi"]
+[gd_scene load_steps=4 format=3 uid="uid://bttyjhy8ebrmi"]
 
+[ext_resource type="Script" path="res://scripts/main.cs" id="1_1kdrw"]
 [ext_resource type="PackedScene" uid="uid://c51tbsy421u2m" path="res://scenes/player.tscn" id="1_v27kh"]
 
 [sub_resource type="Curve2D" id="Curve2D_0tkuh"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_1kdrw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 471.0
@@ -14,6 +16,7 @@ color = Color(0.462745, 0.772549, 0.647059, 1)
 [node name="Player" parent="." instance=ExtResource("1_v27kh")]
 
 [node name="MobTimer" type="Timer" parent="."]
+autostart = true
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -27,3 +30,5 @@ curve = SubResource("Curve2D_0tkuh")
 [node name="MobPathFollow2D" type="PathFollow2D" parent="MobPath"]
 
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
