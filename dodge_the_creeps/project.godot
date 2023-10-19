@@ -24,6 +24,12 @@ window/size/viewport_height=720
 
 project/assembly_name="Dodge The Creeps"
 
+[editor]
+
+naming/default_signal_callback_name="On_{node_name}_{signal_name}"
+naming/default_signal_callback_to_self_name="On_{signal_name}"
+naming/scene_name_casing=1
+
 [input]
 
 ui_left={

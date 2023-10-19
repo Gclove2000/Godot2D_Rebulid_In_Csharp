@@ -3,7 +3,7 @@
 
 # 项目
 - [x] bullet_shower
-- [ ] dodge_the_creeps
+- [x] dodge_the_creeps
 - [ ] finite_state_machine
 - [ ] glow
 - [ ] hexagonal_map

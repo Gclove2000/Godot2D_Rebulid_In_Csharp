@@ -39,4 +39,8 @@ scale = Vector2(1.09955, 1.2223)
 
 [node name="HUD" parent="." instance=ExtResource("4_fl227")]
 
+[connection signal="Hit" from="Player" to="." method="On_player_hit"]
+[connection signal="body_entered" from="Player" to="Player" method="OnPlayerBodyEntered"]
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="OnScoreTimerTimeout"]
+[connection signal="StartGame" from="HUD" to="." method="OnHudStartGame"]

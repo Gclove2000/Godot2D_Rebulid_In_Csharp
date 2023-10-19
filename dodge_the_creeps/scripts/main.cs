@@ -2,6 +2,8 @@ using Godot;
 using System;
 using DodgeTheCreeps;
 using Bogus;
+using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
 
 public partial class main : Node
 {
@@ -9,7 +11,11 @@ public partial class main : Node
 	public Timer ScoreTimer;
 	public Timer MobTimer;
 	public PathFollow2D MobPathFollow2D;
+	public Hud HUD;
+	public Marker2D StartPosition;
 
+
+	public int Score = 0;
 
 	[Export]
 	public PackedScene MobSence { get; set; }
@@ -19,10 +25,16 @@ public partial class main : Node
 		this.GetChildNode(ref ScoreTimer);
 		this.GetChildNode(ref MobTimer);
 		this.GetChildNode(ref MobPathFollow2D, "MobPath/"+nameof(MobPathFollow2D));
+		this.GetChildNode(ref HUD);
+		this.GetChildNode(ref StartPosition);
+
+
+        ScoreTimer.Stop();
+		MobTimer.Stop();
     }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
 	{
 	}
 
@@ -48,4 +60,31 @@ public partial class main : Node
 		AddChild(mob);
 
     }
+
+	public void OnHudStartGame()
+	{
+		GD_Extensions.GD_Print("开始游戏！");
+		//GetTree().CallGroup("mobs", "queue_free");
+		Score = 0;
+
+        MobTimer.Start();
+		ScoreTimer.Start();
+		HUD.ShowMessage("Get Ready");
+
+
+        //return Task.CompletedTask;
+    }
+
+	public void OnScoreTimerTimeout()
+	{
+		Score++;
+		HUD.SetSocre(Score);
+	}
+
+	public void On_player_hit()
+	{
+		ScoreTimer.Stop();
+		MobTimer.Stop();
+		HUD.ShowGameOver();
+	}
 }

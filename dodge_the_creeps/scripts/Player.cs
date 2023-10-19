@@ -5,8 +5,14 @@ public partial class Player : Area2D
 {
     public int Speed = 200;
     public AnimatedSprite2D AnimatedSprite2D;
+    public CollisionShape2D CollisionShape2D;
+
     public Vector2 Size { get; set; }
     public Vector2 Move { get; set; } = new Vector2();
+
+    [Signal]
+    public delegate void HitEventHandler();
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -14,6 +20,7 @@ public partial class Player : Area2D
 
         GD_Extensions.GD_Print("Hello Godot!");
         this.GetChildNode(ref AnimatedSprite2D);
+        this.GetChildNode(ref CollisionShape2D);
         Size =  GetViewportRect().Size;
 
     }
@@ -51,6 +58,13 @@ public partial class Player : Area2D
 
         #endregion
 
+    }
+
+    public void OnPlayerBodyEntered(Node2D body)
+    {
+        Hide();
+        EmitSignal(SignalName.Hit);
+        CollisionShape2D.SetDeferred("disabled", true);
     }
 
 

@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 public partial class Hud : CanvasLayer
 {
+
+	[Signal]
+	public delegate void StartGameEventHandler();
+
 	public Label ScoreLabel;
 	public Label MessageLabel;
 	public Button StartButton;
@@ -27,40 +31,32 @@ public partial class Hud : CanvasLayer
 
 	public void ShowMessage(string text)
 	{
+
 		MessageLabel.Text = text;
 		MessageLabel.Show();
 		MessageTimer.Start();
 	}
 
-	public async Task ShowGameOver()
+	public void ShowGameOver()
 	{
-        //ShowMessage("Game Over!");
-        //await ToSignal(MessageTimer, "timeout");
-        //MessageLabel.Text = "Dodge the Creeps!";
-        StartButton.Hide();
-        //MessageLabel.Show();
-		GD_Extensions.GD_Print("开始等待3s");
-        await Task.Delay(3000);
-		GD_Extensions.GD_Print("等待3s");
-		//StartButton.Show();
-		//return Task.CompletedTask;
+        MessageTimer.Stop();
+
+        MessageLabel.Text = "Game Over!";
+		MessageLabel.Show();
 	}
 
-	public  async void  OnStartButtonPressed()
+	public void SetSocre(int num)
 	{
-        //MessageLabel.Show();
+		ScoreLabel.Text = num.ToString();
+	}
 
-        GD_Extensions.GD_Print("异步事件开始");
-        //await Task.Delay(1000 * 3);
-        await ShowGameOver();
-        GD_Extensions.GD_Print("异步事件结束");
-        //StartButton.Hide();
-        //GD_Extensions.GD_Print("异步事件开始");
-        //ShowGameOver().Wait();
-        //GD_Extensions.GD_Print("异步事件结束");
+	public void  OnStartButtonPressed()
+	{
+		StartButton.Hide();
+		EmitSignal(SignalName.StartGame);
     }
 
-    public void OnMessageTimerTimeout() { 
-
+    public void OnMessageTimerTimeout() {
+		MessageLabel.Hide();
 	}
 }
