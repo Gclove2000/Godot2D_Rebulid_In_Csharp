@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://pmv45jtcuo5a"]
 
 [node name="Main" type="Node"]
+
+[node name="Beach" type="Sprite2D" parent="."]
+
+[node name="Cave" type="Sprite2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
