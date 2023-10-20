@@ -30,6 +30,7 @@ autostart = true
 [node name="StartTimer" type="Timer" parent="."]
 
 [node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(290, 274)
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_0tkuh")

@@ -13,7 +13,7 @@ public partial class main : Node
 	public PathFollow2D MobPathFollow2D;
 	public Hud HUD;
 	public Marker2D StartPosition;
-
+	public Player Player;
 
 	public int Score = 0;
 
@@ -27,7 +27,10 @@ public partial class main : Node
 		this.GetChildNode(ref MobPathFollow2D, "MobPath/"+nameof(MobPathFollow2D));
 		this.GetChildNode(ref HUD);
 		this.GetChildNode(ref StartPosition);
+		//this.GetChildNode(ref Player);
+		Player = GetNode<Player>("Player");
 
+        Player.Position = StartPosition.Position;
 
         ScoreTimer.Stop();
 		MobTimer.Stop();
@@ -46,6 +49,7 @@ public partial class main : Node
 
 		//设置随机位置
 		MobPathFollow2D.Progress = GD.Randi();
+		GD_Extensions.GD_Print(MobPathFollow2D.Progress);
 
 		//设置方向
 		mob.Position = MobPathFollow2D.Position;
@@ -58,7 +62,7 @@ public partial class main : Node
 		var vector =new Vector2(GD_Extensions.Faker.Random.Float(150,250),0);
 		mob.LinearVelocity = vector.Rotated((float)direction);
 		AddChild(mob);
-
+		GetTree().CallGroup("a",Node.MethodName.QueueFree);
     }
 
 	public void OnHudStartGame()
@@ -66,7 +70,7 @@ public partial class main : Node
 		GD_Extensions.GD_Print("开始游戏！");
 		//GetTree().CallGroup("mobs", "queue_free");
 		Score = 0;
-
+	
         MobTimer.Start();
 		ScoreTimer.Start();
 		HUD.ShowMessage("Get Ready");

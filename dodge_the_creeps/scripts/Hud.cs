@@ -40,7 +40,6 @@ public partial class Hud : CanvasLayer
 	public void ShowGameOver()
 	{
         MessageTimer.Stop();
-
         MessageLabel.Text = "Game Over!";
 		MessageLabel.Show();
 	}

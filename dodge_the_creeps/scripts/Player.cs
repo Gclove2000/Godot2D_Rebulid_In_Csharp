@@ -45,7 +45,7 @@ public partial class Player : Area2D
 
         }
         Position += move.Normalized()*Speed*(float)delta;
-        Position = Position.Clamp(Vector2.Zero, Size);
+        //Position = Position.Clamp(Vector2.Zero, Size);
         #region 控制图像翻转
         if (move.X != 0)
         {

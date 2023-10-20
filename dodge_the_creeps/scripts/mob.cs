@@ -10,9 +10,10 @@ public partial class mob : RigidBody2D
 	{
 		this.GetChildNode(ref AnimatedSprite2D);
 		var mob_animation = AnimatedSprite2D.SpriteFrames.GetAnimationNames();
-		var index = GD_Extensions.Faker.Random.Int(0, mob_animation.Length - 1);
+        var index = GD_Extensions.Faker.Random.Int(0, mob_animation.Length - 1);
 		AnimatedSprite2D.Animation =mob_animation[index] ;
-		AnimatedSprite2D.Play();
+		//AnimatedSprite2D.Animation ="paly";
+        AnimatedSprite2D.Play();
 		
 	}
 
