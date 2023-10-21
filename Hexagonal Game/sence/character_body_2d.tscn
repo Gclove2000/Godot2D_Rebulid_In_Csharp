@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbh2c72cnv8kd"]
+
+[ext_resource type="Texture2D" uid="uid://d0crjygl3213" path="res://resource/image/troll.png" id="1_nmls0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tou7l"]
+radius = 16.1245
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nmls0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tou7l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
