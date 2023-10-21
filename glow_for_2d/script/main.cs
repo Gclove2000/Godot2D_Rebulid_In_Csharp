@@ -12,23 +12,30 @@ public partial class main : Node
 		GD_Extensions.GD_Print("Hello Godot!");
 		this.GetChildNode(ref Camera2D);
 		this.GetChildNode(ref WorldEnvironment);
+        GD_Extensions.GD_Print("Hello Godot!");
+
     }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
 	{
 	}
 
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent @event)
     {
-		if(@event is InputEventMouseMotion)
+		
+		if(@event is InputEventMouseMotion eventMouseMotion)
 		{
-			var new_event = (InputEventMouseMotion)@event;
-			GD_Extensions.GD_Print(Camera2D.Position.X);
-			Camera2D.Position.X = Mathf.Clamp(Camera2D.Position.X + new_event.Relative.X, -1000, 0);
+			//Console.WriteLine("按钮事件");
+			if(eventMouseMotion.ButtonMask > 0)
+			{
+				GD_Extensions.GD_Print("按钮点击事件");
+				GD_Extensions.GD_Print(eventMouseMotion.Relative.X);
+				Camera2D.Position = new Vector2(Camera2D.Position.X-eventMouseMotion.Relative.X,Camera2D.Position.Y);
 
+            }
 		}
-        base._UnhandledInput(@event);
+		base._UnhandledInput(@event);
     }
 
 }
