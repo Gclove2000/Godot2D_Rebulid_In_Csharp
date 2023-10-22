@@ -4,8 +4,8 @@
 # 项目
 - [x] bullet_shower
 - [x] dodge_the_creeps
-- [ ] finite_state_machine
-- [ ] glow
+- [ ] finite_state_machine(太难了，先跳过)
+- [x] glow
 - [ ] hexagonal_map
 - [ ] instancing
 - [ ] isometric
