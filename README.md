@@ -2,12 +2,12 @@
 我发现Godot 官方案例大部分都是使用GDScirpt。我刚好工作内容是C# 上位机方法，我C#语法不错而且 .net core 6.0 也用的比较多。刚好Godot 可以使用C# +.net core 开发。我打算使用C# 去重构官方的教学案例。 
 
 # 项目
-- [x] bullet_shower
-- [x] dodge_the_creeps
+- [x] bullet_shower(雪球碰撞)
+- [x] dodge_the_creeps(敌人躲避)
 - [ ] finite_state_machine(太难了，先跳过)
-- [x] glow
+- [x] glow(鼠标拖动)
 - [ ] hexagonal_map
-- [ ] instancing
+- [x] instancing(小球实例化生成)
 - [ ] isometric
 - [ ] kinematic_character
 - [ ] light2d_as_mask
