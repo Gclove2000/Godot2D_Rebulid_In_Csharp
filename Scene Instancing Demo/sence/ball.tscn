@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://vhw4yevprf7w"]
+
+[ext_resource type="Texture2D" uid="uid://yek587b4w8bh" path="res://resource/image/bowling_ball.png" id="1_cpgog"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fvkvv"]
+radius = 32.1403
+
+[node name="Ball" type="RigidBody2D"]
+position = Vector2(533, 271)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cpgog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_fvkvv")

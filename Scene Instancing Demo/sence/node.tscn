@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://kpboauuch83m"]
+[gd_scene load_steps=4 format=3 uid="uid://kpboauuch83m"]
+
+[ext_resource type="PackedScene" uid="uid://vhw4yevprf7w" path="res://sence/ball.tscn" id="1_h8551"]
+[ext_resource type="Script" path="res://sence/BallFactory.cs" id="1_ttflw"]
+[ext_resource type="Script" path="res://sence/GD_Input.cs" id="3_35orr"]
 
 [node name="Node" type="Node"]
+
+[node name="BallFactory" type="Node" parent="."]
+script = ExtResource("1_ttflw")
+Ball_Scene = ExtResource("1_h8551")
+
+[node name="Ball" parent="BallFactory" instance=ExtResource("1_h8551")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(118, 70, 118, 562, 937, 572, 959, 43, 866, 493, 815, 436, 697, 433, 600, 494, 388, 472, 306, 406, 168, 494)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(0.482353, 0.654902, 0.752941, 1)
+polygon = PackedVector2Array(118, 70, 118, 562, 937, 572, 959, 43, 866, 493, 815, 436, 697, 433, 600, 494, 388, 472, 306, 406, 168, 494)
+
+[node name="GD_Input" type="Node" parent="."]
+script = ExtResource("3_35orr")
