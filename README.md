@@ -8,7 +8,7 @@
 - [x] glow(鼠标拖动)
 - [ ] hexagonal_map
 - [x] instancing(小球实例化生成)
-- [ ] isometric
+- [x] isometric(tilemap物理碰撞和y轴遮挡关系)
 - [ ] kinematic_character
 - [ ] light2d_as_mask
 - [ ] lights_and_shadows

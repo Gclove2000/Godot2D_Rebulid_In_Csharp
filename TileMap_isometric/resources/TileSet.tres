@@ -19,10 +19,16 @@ texture_region_size = Vector2i(140, 140)
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21.496, 35.921, 6.22254, 47.8004, 27.7186, 33.0926, 28.0735, 17.9632, 6.78822, 5.37402, -15.2735, 12.7279)
+4:0/next_alternative_id = 8
 4:0/0 = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(20.3647, 8.20244, -39.9123, 43.1195, -24.8902, 49.4975, 39.5559, 19.0652)
+4:0/1 = 1
+4:0/1/flip_h = true
+4:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/1/physics_layer_0/angular_velocity = 0.0
+4:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-2.26274, 2.54559, -64.4881, 30.8299, -1.69706, 62.5082, 65.6195, 28.0014)
 
 [resource]
 tile_shape = 1
