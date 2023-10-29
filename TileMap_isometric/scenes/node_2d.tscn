@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbnlgy31pupdf"]
+
+[ext_resource type="PackedScene" uid="uid://d3no6bl216a3s" path="res://scenes/player.tscn" id="1_84020"]
+[ext_resource type="TileSet" uid="uid://wfqqa51dgey" path="res://resources/TileSet.tres" id="1_sw1yy"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("1_sw1yy")
+format = 2
+layer_0/name = "floor"
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(262143, 65536, 0, 131072, 65536, 0, 131071, 65536, 0, 0, 65536, 0, -65536, 65536, 0, 65535, 65536, 0, 131070, 65536, 0, 196607, 65536, 0, 262142, 65536, 0, 196606, 65536, 0, 327679, 65536, 0, 65536, 65536, 0, 1, 65536, 0, -65535, 65536, 0, -131071, 65536, 0, -131072, 65536, 0, -1, 65536, 0, -196608, 65536, 0, -262144, 65536, 0, -131073, 65536, 0, -65537, 65536, 0, -2, 65536, 0, 65534, 65536, 0)
+layer_1/name = "wall"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 128
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(393215, 131072, 0, 262144, 131072, 0, 196608, 131072, 0, 131073, 131072, 0, 65537, 131072, 0, 1, 131072, 0, -65535, 131072, 0, 2, 131072, 0, 458751, 131072, 0, 393214, 131072, 0, 327678, 131072, 0, 262141, 131072, 0, 196605, 131072, 0, 131069, 131072, 0, 65533, 131072, 0, -3, 131072, 0, -65538, 131072, 0, -131074, 131072, 0, -196609, 131072, 0, -262145, 131072, 0, -393216, 131072, 0, -327680, 131072, 0, -393215, 131072, 0, -327679, 131072, 0, -262143, 131072, 0, -196607, 131072, 0, -131070, 131072, 0, 0, 131072, 0, 131071, 131072, 0, 65536, 131072, 0, 131072, 131072, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_84020")]
+position = Vector2(-124, 133)

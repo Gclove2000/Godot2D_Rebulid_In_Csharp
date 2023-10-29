@@ -13,7 +13,7 @@ config_version=5
 config/name="Scene Instancing Demo"
 config/tags=PackedStringArray("csharp")
 run/main_scene="res://sence/node.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]

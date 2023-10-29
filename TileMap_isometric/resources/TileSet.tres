@@ -1,0 +1,31 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://wfqqa51dgey"]
+
+[ext_resource type="Texture2D" uid="uid://ea3o05n8wdp7" path="res://resources/merged_tiles.png" id="1_548an"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scodo"]
+texture = ExtResource("1_548an")
+texture_region_size = Vector2i(140, 140)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -32, -64, 0, 0, 32, 64, 0)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21.496, 35.921, 6.22254, 47.8004, 27.7186, 33.0926, 28.0735, 17.9632, 6.78822, 5.37402, -15.2735, 12.7279)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(20.3647, 8.20244, -39.9123, 43.1195, -24.8902, 49.4975, 39.5559, 19.0652)
+
+[resource]
+tile_shape = 1
+tile_size = Vector2i(128, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_scodo")

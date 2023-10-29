@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3no6bl216a3s"]
+
+[ext_resource type="Texture2D" uid="uid://bqwatejgd0213" path="res://resources/troll.png" id="1_7egfr"]
+[ext_resource type="Script" path="res://scripts/player.cs" id="1_gpo8e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7106j"]
+radius = 18.1108
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_gpo8e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-6, -30)
+texture = ExtResource("1_7egfr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7106j")
